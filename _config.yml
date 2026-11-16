@@ -1,10 +1,10 @@
 # ---------------------------------------------------------------
 #  Wedding site settings: edit these first
 # ---------------------------------------------------------------
-couple: "Name & Name"
+couple: "Aleksandra & Alexander"
 title: "Name & Name"
-date: 2027-06-12           # wedding day (YYYY-MM-DD)
-rsvp_deadline: 2027-05-01  # shown on the RSVP page
+date: 2027-07-31           # wedding day (YYYY-MM-DD)
+rsvp_deadline: 2027-03-31  # shown on the RSVP page
 venue:
   name: "[Venue name]"
   city: "[City]"
