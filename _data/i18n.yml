@@ -16,8 +16,8 @@ en:
     title: RSVP
     intro: "Please reply by"
     attending_q: "Will you be joining us?"
-    yes: "Yes, wouldn't miss it!"
-    no: "Sadly, we can't make it"
+    accept: "Yes, wouldn't miss it!"
+    decline: "Sadly, we can't make it"
     email: Email
     email_hint: "So we can send you updates."
     guests_heading: "Who's in your party?"
@@ -53,8 +53,8 @@ pl:
     title: Potwierdzenie obecności
     intro: "Prosimy o odpowiedź do"
     attending_q: "Czy będziecie z nami?"
-    yes: "Tak, z radością!"
-    no: "Niestety nie damy rady"
+    accept: "Tak, z radością!"
+    decline: "Niestety nie damy rady"
     email: E-mail
     email_hint: "Abyśmy mogli przesyłać Wam aktualności."
     guests_heading: "Kto przyjdzie?"
