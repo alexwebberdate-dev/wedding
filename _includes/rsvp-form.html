@@ -1,0 +1,67 @@
+{% assign r = site.data.i18n[page.lang].rsvp %}
+<section class="rsvp">
+  <h1>{{ r.title }}</h1>
+  <p class="lede">{{ r.intro }} <strong>{% include date.html date=site.rsvp_deadline %}</strong>.</p>
+
+  <form id="rsvp-form" novalidate
+        data-endpoint="{{ site.rsvp_endpoint }}"
+        data-lang="{{ page.lang }}"
+        data-max-guests="{{ site.max_guests | default: 6 }}">
+
+    <fieldset>
+      <legend>{{ r.attending_q }}</legend>
+      <label class="choice"><input type="radio" name="attending" value="yes" required> {{ r.yes }}</label>
+      <label class="choice"><input type="radio" name="attending" value="no" required> {{ r.no }}</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>{{ r.guests_heading }}</legend>
+      <div id="guest-list"></div>
+      <button type="button" id="add-guest" class="link">{{ r.add_guest }}</button>
+    </fieldset>
+
+    <label>{{ r.email }}
+      <input type="email" name="email" required autocomplete="email">
+      <small>{{ r.email_hint }}</small>
+    </label>
+
+    <label>{{ r.message }}
+      <textarea name="message" rows="3"></textarea>
+    </label>
+
+    <!-- Spam trap: real people never see or fill this -->
+    <div class="hp" aria-hidden="true">
+      <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+    </div>
+
+    <button type="submit" class="btn">{{ r.submit }}</button>
+    <p id="rsvp-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <div id="rsvp-thanks" class="thanks" hidden></div>
+
+  <template id="guest-template">
+    <div class="guest">
+      <div class="guest-head">
+        <span>{{ r.guest }} <span class="n"></span></span>
+        <button type="button" class="remove link">{{ r.remove_guest }}</button>
+      </div>
+      <label>{{ r.name }}
+        <input type="text" data-field="name" required autocomplete="off">
+      </label>
+      <label class="meal-field">{{ r.meal }}
+        <select data-field="meal" required>
+          <option value="">{{ r.meal_placeholder }}</option>
+          {% for m in site.data.wedding.meals %}<option value="{{ m.id }}">{{ m[page.lang] }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label class="meal-field">{{ r.dietary }}
+        <input type="text" data-field="dietary">
+      </label>
+    </div>
+  </template>
+
+  <script>window.RSVP_TEXT = {{ r | jsonify }};</script>
+  <script src="{{ '/assets/js/rsvp.js' | relative_url }}" defer></script>
+</section>

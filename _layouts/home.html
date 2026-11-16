@@ -1,0 +1,14 @@
+---
+layout: default
+---
+{% assign t = site.data.i18n[page.lang] %}
+{% assign rsvp = site.pages | where: "ref", "rsvp" | where: "lang", page.lang | first %}
+<section class="hero">
+  <p class="eyebrow">{{ t.home.eyebrow }}</p>
+  <h1>{{ site.couple }}</h1>
+  <p class="when">{% include date.html date=site.date %} · {{ site.venue.name }}, {{ site.venue.city }}</p>
+  {% if rsvp %}<a class="btn" href="{{ rsvp.url | relative_url }}">{{ t.nav.rsvp }}</a>{% endif %}
+</section>
+<div class="prose">
+  {{ content }}
+</div>

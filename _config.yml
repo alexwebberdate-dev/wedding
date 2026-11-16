@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------
+#  Wedding site settings: edit these first
+# ---------------------------------------------------------------
+couple: "Name & Name"
+title: "Name & Name"
+date: 2027-06-12           # wedding day (YYYY-MM-DD)
+rsvp_deadline: 2027-05-01  # shown on the RSVP page
+venue:
+  name: "[Venue name]"
+  city: "[City]"
+
+# Paste your Google Apps Script web app URL here (see README, step 2).
+# Until it's set, the RSVP form shows a "not connected" message.
+rsvp_endpoint: ""
+
+# Largest party one RSVP can include
+max_guests: 6
+
+# ---------------------------------------------------------------
+#  Languages: each one needs a folder (/en, /pl) and an entry in
+#  _data/i18n.yml. The first is the fallback.
+# ---------------------------------------------------------------
+languages: [en, pl]
+default_lang: en
+
+# ---------------------------------------------------------------
+#  Site / build
+# ---------------------------------------------------------------
+url: ""      # e.g. https://ourwedding.com
+baseurl: ""  # e.g. /wedding if hosted at username.github.io/wedding
+markdown: kramdown
+
+exclude:
+  - apps-script
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

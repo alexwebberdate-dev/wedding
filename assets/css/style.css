@@ -1,0 +1,233 @@
+:root {
+  --bg: #faf7f2;
+  --surface: #ffffff;
+  --text: #2b2724;
+  --muted: #6f675f;
+  --accent: #8a6d4b;
+  --accent-ink: #ffffff;
+  --line: #e6dfd4;
+  --error: #b3261e;
+  --radius: 10px;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1a18;
+    --surface: #25221f;
+    --text: #efe9e1;
+    --muted: #a89f94;
+    --accent: #c9a77c;
+    --accent-ink: #1c1a18;
+    --line: #3a3530;
+    --error: #f2b8b5;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.65 var(--sans);
+}
+
+a { color: var(--accent); }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  line-height: 1.2;
+}
+h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); margin: 0.2em 0 0.4em; }
+h2 { font-size: 1.7rem; margin-top: 2.2rem; }
+
+/* ---------- Header ---------- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem 16px;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.1rem;
+  order: 3;
+  width: 100%;
+}
+@media (min-width: 760px) {
+  .site-header nav { order: 0; width: auto; }
+}
+.site-header nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
+}
+.site-header nav a:hover { color: var(--text); }
+.site-header nav a[aria-current] { color: var(--text); border-color: var(--accent); }
+.lang-switch a {
+  font-size: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.2rem 0.75rem;
+  text-decoration: none;
+}
+
+/* ---------- Layout ---------- */
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2.5rem 16px 4rem;
+}
+
+.hero { text-align: center; padding: 3rem 0 2rem; }
+.hero h1 { font-size: clamp(3rem, 10vw, 5rem); margin: 0.1em 0 0.2em; }
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+}
+.when { font-family: var(--serif); font-size: 1.4rem; margin: 0 0 2rem; }
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--accent-ink);
+  border: 0;
+  border-radius: 999px;
+  padding: 0.8rem 2rem;
+  font: 500 1rem var(--sans);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn:disabled { opacity: 0.6; cursor: wait; }
+
+/* ---------- Schedule ---------- */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  border-left: 2px solid var(--line);
+}
+.timeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0 0.6rem 1.25rem;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 1.15rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.timeline time { font-weight: 500; }
+.timeline span { display: block; color: var(--muted); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 2rem 16px;
+  border-top: 1px solid var(--line);
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+.site-footer p { margin: 0.2rem 0; }
+
+/* ---------- RSVP form ---------- */
+form label { display: block; margin: 1rem 0; font-weight: 500; }
+input[type=text], input[type=email], select, textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+small { display: block; color: var(--muted); font-weight: 400; font-size: 0.85rem; margin-top: 0.25rem; }
+
+fieldset { border: 0; padding: 0; margin: 1.75rem 0; }
+legend { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; margin-bottom: 0.5rem; }
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+  padding: 0.75rem 1rem;
+  font-weight: 400;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+.choice:has(input:checked) { border-color: var(--accent); }
+.choice input { accent-color: var(--accent); }
+
+.guest {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.25rem 1rem;
+  margin-bottom: 1rem;
+}
+.guest-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.6rem;
+  font-weight: 500;
+}
+
+.link {
+  background: none;
+  border: 0;
+  padding: 0.25rem 0;
+  color: var(--accent);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.declining .meal-field { display: none; }
+.validated :invalid { border-color: var(--error); }
+#rsvp-status.error { color: var(--error); }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.thanks {
+  text-align: center;
+  padding: 3rem 0;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+}

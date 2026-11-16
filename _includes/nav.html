@@ -1,0 +1,16 @@
+{% assign t = site.data.i18n[page.lang] %}
+{% assign navpages = site.pages | where: "lang", page.lang | where_exp: "p", "p.order" | sort: "order" %}
+<header class="site-header">
+  <a class="brand" href="{{ '/' | append: page.lang | append: '/' | relative_url }}">{{ site.couple }}</a>
+  <nav aria-label="Main">
+    {% for p in navpages %}
+      <a href="{{ p.url | relative_url }}"{% if p.url == page.url %} aria-current="page"{% endif %}>{{ t.nav[p.ref] }}</a>
+    {% endfor %}
+  </nav>
+  <div class="lang-switch">
+    {% for l in site.languages %}{% unless l == page.lang %}
+      {% assign alt = site.pages | where: "ref", page.ref | where: "lang", l | first %}
+      {% if alt %}<a href="{{ alt.url | relative_url }}" hreflang="{{ l }}" lang="{{ l }}">{{ site.data.i18n[l].lang_name }}</a>{% endif %}
+    {% endunless %}{% endfor %}
+  </div>
+</header>

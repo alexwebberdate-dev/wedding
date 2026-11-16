@@ -1,0 +1,29 @@
+<!doctype html>
+{% assign lang = page.lang | default: site.default_lang %}
+{% assign t = site.data.i18n[lang] %}
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.couple }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% for l in site.languages %}
+    {% assign alt = site.pages | where: "ref", page.ref | where: "lang", l | first %}
+    {% if alt %}<link rel="alternate" hreflang="{{ l }}" href="{{ alt.url | relative_url }}">{% endif %}
+  {% endfor %}
+</head>
+<body>
+  {% include nav.html %}
+  <main class="page-{{ page.ref }}">
+    {{ content }}
+  </main>
+  <footer class="site-footer">
+    <p>{{ t.footer }}</p>
+    <p class="footer-date">{% include date.html date=site.date %}</p>
+  </footer>
+  <script>try { localStorage.setItem('lang', '{{ lang }}'); } catch (e) {}</script>
+</body>
+</html>

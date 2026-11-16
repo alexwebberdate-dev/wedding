@@ -1,0 +1,29 @@
+---
+layout: null
+---
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.couple }}</title>
+  <script>
+    // Send visitors to their saved language, else their browser's first language.
+    (function () {
+      var supported = {{ site.languages | jsonify }};
+      var lang;
+      try { lang = localStorage.getItem('lang'); } catch (e) {}
+      if (supported.indexOf(lang) < 0) {
+        var first = ((navigator.languages && navigator.languages[0]) || navigator.language || '').slice(0, 2).toLowerCase();
+        lang = supported.indexOf(first) >= 0 ? first : '{{ site.default_lang }}';
+      }
+      location.replace('{{ "/" | relative_url }}' + lang + '/');
+    })();
+  </script>
+</head>
+<body>
+  <p>
+    {% for l in site.languages %}<a href="{{ '/' | append: l | append: '/' | relative_url }}">{{ site.data.i18n[l].lang_name }}</a>{% unless forloop.last %} · {% endunless %}{% endfor %}
+  </p>
+</body>
+</html>

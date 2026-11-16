@@ -1,0 +1,16 @@
+# Menu options for the RSVP form.
+# `id` is what gets saved to the spreadsheet (same in every language);
+# `en` / `pl` are what guests see. Add, remove or rename freely.
+meals:
+  - id: beef
+    en: Beef tenderloin
+    pl: Polędwica wołowa
+  - id: fish
+    en: Baked salmon
+    pl: Pieczony łosoś
+  - id: vegetarian
+    en: Wild mushroom risotto (vegetarian)
+    pl: Risotto z leśnymi grzybami (wegetariańskie)
+  - id: kids
+    en: Children's menu
+    pl: Menu dziecięce

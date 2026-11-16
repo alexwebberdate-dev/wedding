@@ -1,0 +1,75 @@
+# Interface text for each language. Page content lives in /en and /pl.
+
+en:
+  lang_name: English
+  nav:
+    home: Home
+    schedule: Schedule
+    travel: Travel & Stay
+    faq: FAQ
+    rsvp: RSVP
+  months: [January, February, March, April, May, June, July, August, September, October, November, December]
+  home:
+    eyebrow: "We're getting married"
+  footer: "We can't wait to celebrate with you."
+  rsvp:
+    title: RSVP
+    intro: "Please reply by"
+    attending_q: "Will you be joining us?"
+    yes: "Yes, wouldn't miss it!"
+    no: "Sadly, we can't make it"
+    email: Email
+    email_hint: "So we can send you updates."
+    guests_heading: "Who's in your party?"
+    guest: Guest
+    name: Full name
+    meal: Main course
+    meal_placeholder: "Choose a main course"
+    dietary: Allergies or dietary needs
+    add_guest: "+ Add another guest"
+    remove_guest: Remove
+    message: "Message for the couple (optional)"
+    submit: Send RSVP
+    sending: "Sending…"
+    thanks_yes: "Thank you! We can't wait to see you."
+    thanks_no: "Thank you for letting us know. We'll miss you!"
+    error: "Something went wrong. Please try again, or email us."
+    required: "Please fill in the highlighted fields."
+    not_configured: "The RSVP form isn't connected yet. Set rsvp_endpoint in _config.yml."
+
+pl:
+  lang_name: Polski
+  nav:
+    home: Start
+    schedule: Plan dnia
+    travel: Dojazd i noclegi
+    faq: Pytania
+    rsvp: Potwierdzenie
+  months: [stycznia, lutego, marca, kwietnia, maja, czerwca, lipca, sierpnia, września, października, listopada, grudnia]
+  home:
+    eyebrow: "Bierzemy ślub"
+  footer: "Nie możemy się doczekać, by świętować razem z Wami."
+  rsvp:
+    title: Potwierdzenie obecności
+    intro: "Prosimy o odpowiedź do"
+    attending_q: "Czy będziecie z nami?"
+    yes: "Tak, z radością!"
+    no: "Niestety nie damy rady"
+    email: E-mail
+    email_hint: "Abyśmy mogli przesyłać Wam aktualności."
+    guests_heading: "Kto przyjdzie?"
+    guest: Gość
+    name: Imię i nazwisko
+    meal: Danie główne
+    meal_placeholder: "Wybierz danie główne"
+    dietary: Alergie lub wymagania dietetyczne
+    add_guest: "+ Dodaj kolejną osobę"
+    remove_guest: Usuń
+    message: "Wiadomość dla Pary Młodej (opcjonalnie)"
+    submit: Wyślij odpowiedź
+    sending: "Wysyłanie…"
+    thanks_yes: "Dziękujemy! Nie możemy się doczekać spotkania."
+    thanks_no: "Dziękujemy za informację. Będzie nam Was brakowało!"
+    error: "Coś poszło nie tak. Spróbujcie ponownie lub napiszcie do nas."
+    required: "Uzupełnijcie zaznaczone pola."
+    not_configured: "Formularz nie jest jeszcze podłączony. Ustaw rsvp_endpoint w _config.yml."
